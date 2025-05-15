@@ -30,6 +30,7 @@ function computerChoice() {
     
     switch(RndNum) {
         case 0:
+            computer = "rock";
             console.log("computer choose rock");
             break;
         case 1: 
@@ -71,19 +72,21 @@ function playRound(playerc, computerc) {
 
     if (playerc === "rock" && computerc === "rock") {
         console.log("its a draw!");
+        console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
     }
     else if( playerc === "rock" && computerc === "paper") {
         console.log("Computer wins this round! ");
         computerScore++;
         console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+    } else if(playerc === "rock" && computerc === "scissors") {
+        console.log("player winns this round! ");
+        console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
     }
-    // skriv ut vinnaren och förloraren 
-
-    // plusa på score till vinnaren 
+ 
 
 };
 
-playRound(player, computer); // varför funkar inte denna? förmodligen för computer är i en annan funktion. 
+playRound(player, computer); 
 
 function playGame() {
 player = prompt("Rock paper or scissors?" ).toLowerCase(); 
