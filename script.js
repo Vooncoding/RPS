@@ -21,12 +21,12 @@ let player = "";// skapa spelarens input
 
 
 
-let userScore = 0;
+let userScore = 0; 
 let computerScore = 0;
 let computer = "";
 function computerChoice() {
 
-    let RndNum = Math.floor(Math.random() * 4);
+    let RndNum = Math.floor(Math.random() * 3);
     
     switch(RndNum) {
         case 0:
@@ -34,9 +34,11 @@ function computerChoice() {
             console.log("computer choose rock");
             break;
         case 1: 
+        computer = "scissors";
         console.log("computer choose scissors");
         break;
         case 2: 
+        computer = "paper";
         console.log("computer choose paper");
         break;
     };
@@ -79,14 +81,37 @@ function playRound(playerc, computerc) {
         computerScore++;
         console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
     } else if(playerc === "rock" && computerc === "scissors") {
-        console.log("player winns this round! ");
+        console.log("player wins this round! ");
+         userScore++;
         console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+       
+    } else if(playerc === "paper" && computerc === "rock") {
+        console.log("Player wins this round! ");
+        userScore++;
+         console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+        
+    } else if(playerc === "paper" && computerc === "paper") {
+        console.log("its a draw! ");
+         console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+
+    } else if(playerc === "paper" && computerc === "scissors") {
+        console.log("Computer wins this round! ");
+         computerScore++;
+          console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+    } else if(playerc === "scissors" && computerc === "rock"){
+        console.log("computer wins this round! ");
+        computerScore++;
+         console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+    } else if(playerc === "scissors" && computerc === "paper") {
+        console.log("player wins this round! ");
+        userScore++;
+         console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+    } else if (playerc === "scissors" && computerc === "scissors") {
+        console.log("its a draw! ");
     }
  
 
 };
-
-playRound(player, computer); 
 
 function playGame() {
 player = prompt("Rock paper or scissors?" ).toLowerCase(); 
