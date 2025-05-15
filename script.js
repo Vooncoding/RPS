@@ -16,53 +16,102 @@
 
 // 
 
-let player = prompt("Rock paper or scissors?" ).toLowerCase();
+let player = "";// skapa spelarens input 
 
 
 
-let comp = "";
 
 let userScore = 0;
 let computerScore = 0;
-
+let computer = "";
 function computerChoice() {
-    // slumpa ut ett tal mellan 1 och 4 
-    // sätt värden till alla talen t.ex 1 == "sten" etc 
 
-}
-
-
-function userChoice() {
-    // 
-
-
-    if (player === "rock") {
-        console.log("player choose rock");
-    } else if(player === "scissors") {
-        console.log("player choose scissors");
-    } else if (player === "paper") {
-        console.log("player choose paper");
-    } else {
-        console.log("invalid input");
+    let RndNum = Math.floor(Math.random() * 4);
+    
+    switch(RndNum) {
+        case 0:
+            console.log("computer choose rock");
+            break;
+        case 1: 
+        console.log("computer choose scissors");
+        break;
+        case 2: 
+        console.log("computer choose paper");
+        break;
     };
+
+    // slumpa ut ett tal mellan 1 och 4 CHECK 
+    // sätt värden till alla talen t.ex 1 == "sten" etc 
+    // skriv ut datorns val i konsolen 
 };
 
-function playRound(userChoice, computerChoice) {
+function userChoice() {
+    
 
+
+    switch(player) {
+        case "rock": 
+            console.log("player choose rock");
+        break;
+        case "scissors":
+            console.log("player choose scissors");
+            break;
+        case "paper":
+            console.log("player choose paper");
+            break;
+        default: 
+        console.log("invalid input");
+    }; 
+};
+
+
+
+function playRound(playerc, computerc) {
+
+
+    if (playerc === "rock" && computerc === "rock") {
+        console.log("its a draw!");
+    }
+    else if( playerc === "rock" && computerc === "paper") {
+        console.log("Computer wins this round! ");
+        computerScore++;
+        console.log(`score is computer: ${computerScore} and user: ${userScore} }`);
+    }
     // skriv ut vinnaren och förloraren 
 
     // plusa på score till vinnaren 
 
+};
 
-}
+playRound(player, computer); // varför funkar inte denna? förmodligen för computer är i en annan funktion. 
 
 function playGame() {
-    playRound(userChoice, computerChoice);
-    playRound(userChoice, computerChoice);
-    playRound(userChoice, computerChoice);
-    playRound(userChoice, computerChoice);
-    playRound(userChoice, computerChoice);
+player = prompt("Rock paper or scissors?" ).toLowerCase(); 
+    computerChoice();
+    userChoice();
+    playRound(player, computer);
+player = prompt("Rock paper or scissors?" ).toLowerCase(); 
+    computerChoice();
+    userChoice();
+    playRound(player, computer);
+player = prompt("Rock paper or scissors?" ).toLowerCase(); 
+    computerChoice();
+    userChoice();
+    playRound(player, computer);
+player = prompt("Rock paper or scissors?" ).toLowerCase(); 
+    computerChoice();
+    userChoice();
+    playRound(player, computer);
+player = prompt("Rock paper or scissors?" ).toLowerCase(); 
+    computerChoice();
+    userChoice();
+    playRound(player, computer);
+    
+
+  
 };
+
+playGame();
 
 
 
